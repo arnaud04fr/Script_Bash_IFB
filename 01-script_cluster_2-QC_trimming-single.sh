@@ -48,7 +48,7 @@ echo "=============================================================="
 echo "Contrôler la qualité : échantillon ${sample}"
 echo "=============================================================="
 mkdir -p "${base_dir}/reads_qc"
-#srun fastqc "${fastq_dir}/${sample}.fastq.gz" --outdir "${base_dir}/reads_qc"
+srun fastqc "${fastq_dir}/${sample}.fastq.gz" --outdir "${base_dir}/reads_qc"
 
 
 echo "=============================================================="
