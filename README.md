@@ -1,7 +1,7 @@
 # Script_Bash_IFB 
 ## Collection de scripts bash pour analyse RNAseq
 
-**_00-script_cluster_genomeIndex_0.sh_** : _script pour indexation génome_
+**00-script_cluster_genomeIndex_0.sh** : _script pour indexation génome_
 
 **_00-script_concatenate-fastaq.sh_** :  _script pour rassembler fichier FastaQ_
 
