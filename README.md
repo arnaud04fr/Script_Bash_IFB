@@ -3,7 +3,7 @@
 
 **00-script_cluster_genomeIndex_0.sh** : _script pour indexation génome_
 
-**00-script_concatenate-fastaq.sh** :  _script pour rassembler fichier FastaQ_
+**00-script_concatenate-fastaq.sh** :  _script pour rassembler fichiers FastaQ_
 
 **01-script_cluster_2-QC_trimming-single.sh** : _script pour analyse fichiers FastaQ en single end avec filtrage_
 
