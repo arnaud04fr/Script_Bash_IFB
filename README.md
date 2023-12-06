@@ -11,7 +11,7 @@
 
 **01-script_cluster_paired_noTrim.sh** : _ssscript pour analyse fichiers FastaQ en paired end sans filtrage_
 
-**02-script_cluster_Count_aggreg.sh** : _script pour rassembler tables de comptage_
+**02-script_cluster_Count_aggreg.sh** : _script pour rassembler les tables de comptage_
 
 **02-script_cluster_multiQC.sh** : _script pour rassembler les analyses fastqc_
 
