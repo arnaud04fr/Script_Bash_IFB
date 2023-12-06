@@ -16,6 +16,7 @@
 **02-script_cluster_multiQC.sh** : _script pour rassembler les analyses fastqc_
 
 **TruSeq3-SE.fa** : fichier nécessaire pour filtrage des séquences d'adaptatrices avec trimmomatic
+
                     * varie en fonction du type de séquenceur
 
 ### Licence
