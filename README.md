@@ -7,7 +7,7 @@
 
 **01-script_cluster_2-QC_trimming-single.sh** : _script pour analyse fichiers FastaQ en single end avec filtrage_
 
-**_1-script_cluster_ASF_1_paired-trimming.sh** : _sscript pour analyse fichiers FastaQ en paired end avec filtrage_
+**01-script_cluster_ASF_1_paired-trimming.sh** : _script pour analyse fichiers FastaQ en paired end avec filtrage_
 
 **01-script_cluster_paired_noTrim.sh** : _ssscript pour analyse fichiers FastaQ en paired end sans filtrage_
 
