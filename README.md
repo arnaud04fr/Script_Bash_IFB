@@ -1,5 +1,7 @@
 # Script_Bash_IFB 
 ## Collection de scripts bash pour analyse RNAseq
+_script adapté d'un script creé par [P. Poulain](https://github.com/pierrepo)  - DU Omic_
+
 
 **00-script_cluster_genomeIndex_0.sh** : _script pour indexation génome_
 
