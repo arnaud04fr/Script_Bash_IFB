@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#SBATCH --partition=long
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --mail-type=END,FAIL
@@ -39,14 +40,12 @@ filtered_fastq_dir="${base_dir}/filtered_reads"
 
 # liste de tous les fichiers _R1 dans un tableau
 fastq_files=(${fastq_dir}/*_1.fastq.gz) #à adpater en fonction des fichiers.
-echo "vérifie le nom du fichier R1:"
-echo $fastq_files
 # extraction de l'identifiant de l'échantillon
 sample=$(basename -s _1.fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
 # Nom du fichier _R2 correspondant
-fastq_file_r2="${fastq_dir}/${sample}_2.fastq.gz" #à adpater en fonction des fichiers.
-echo "vérifie le nom du fichier R2:"
-echo $fastq_file_r2
+fastq_file_r2="${fastq_dir}/${sample}_2.fastq.gz" #à adpater en fonction des fichiers avant filtrage.
+filtered_fastq_file_r2="${fastq_dir}/${sample}_2_filtered.fastq.gz" #à adpater en fonction des fichiers après filtrage.
+
 
 echo "=============================================================="
 echo "Contrôler la qualité : échantillon ${sample}"
@@ -95,7 +94,7 @@ srun STAR --runThreadN "${SLURM_CPUS_PER_TASK}" \
 --genomeDir "${data_dir}/genome_index" \
 --sjdbGTFfile "${annotation_file}" \
 --readFilesCommand zcat \
---readFilesIn "${fastq_dir}/${sample}_1.fastq.gz" "${fastq_file_r2}" \
+--readFilesIn "${filtered_fastq_dir}/${sample}_1_filtered.fastq.gz" "${filtered_fastq_file_r2}" \
 --outFilterType BySJout \
 --alignIntronMin 10 \
 --alignIntronMax 3000 \
