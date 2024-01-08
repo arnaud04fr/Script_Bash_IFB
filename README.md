@@ -7,11 +7,13 @@ adaptés de scripts initialement créés par [Pierre Poulain](https://github.com
 
 **00-script_concatenate-fastaq.sh** :  _script pour rassembler fichiers FastaQ_
 
-**01-script_cluster_2-QC_trimming-single.sh** : _script pour analyse fichiers FastaQ en single end avec filtrage_
+**01-script_cluster_QC_trimming-single.sh** : _script pour analyse fichiers FastaQ en single end avec filtrage_
 
-**01-script_cluster_ASF_1_paired-trimming.sh** : _script pour analyse fichiers FastaQ en paired end avec filtrage_
+**01-script_cluster_QC_trimming_paired.sh** : _script pour analyse fichiers FastaQ en paired end avec filtrage_
 
 **01-script_cluster_paired_noTrim.sh** : _script pour analyse fichiers FastaQ en paired end sans filtrage_
+
+**01-script_cluster_single_noTrimming.sh** : _script pour analyse fichiers FastaQ en single end sans filtrage_
 
 **02-script_cluster_Count_aggreg.sh** : _script pour rassembler les tables de comptage_
 
