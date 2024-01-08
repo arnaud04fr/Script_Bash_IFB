@@ -32,7 +32,7 @@ genome_file="${genome_dir}/GRCh38.primary_assembly.genome.fa"
 # chemin et nom du fichier contenant les annotations
 annotation_file="${genome_dir}/gencode.v44.basic.annotation.gtf"
 # répertoire contenant les fichiers .fastq.gz
-fastq_dir="${base_dir}/Path_to_Folder"
+fastq_dir="${base_dir}/Path_to_Folder" #à adapter
 # liste de tous les fichiers _R1 dans un tableau
 fastq_files=(${fastq_dir}/*_1.fastq.gz) #à adpater en fonction des fichiers.
 # extraction de l'identifiant de l'échantillon
