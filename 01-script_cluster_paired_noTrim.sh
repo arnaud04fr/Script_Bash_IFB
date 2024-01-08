@@ -14,6 +14,7 @@ set -euo pipefail
 
 
 # chargement des modules nécessaires
+module load fastqc/0.11.9
 module load star/2.7.10b
 module load samtools/1.15.1
 module load htseq/0.13.5
@@ -31,14 +32,20 @@ genome_file="${genome_dir}/GRCh38.primary_assembly.genome.fa"
 # chemin et nom du fichier contenant les annotations
 annotation_file="${genome_dir}/gencode.v44.basic.annotation.gtf"
 # répertoire contenant les fichiers .fastq.gz
-fastq_dir="${base_dir}/reads_IPF"
+fastq_dir="${base_dir}/Path_to_Folder"
 fastq_files=("${fastq_dir}"/*.fastq.gz)
-# Output directory for filtered FastQ files
-filtered_fastq_dir="${base_dir}/filtered_reads"
+
 
 # extraction de l'identifiant de l'échantillon
 # à partir du nom de fichier :
 sample=$(basename -s .fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
+
+echo "=============================================================="
+echo "Contrôler la qualité : échantillon ${sample}"
+echo "=============================================================="
+mkdir -p "${base_dir}/reads_qc"
+srun fastqc "${fastq_dir}/${sample}_1.fastq.gz" --outdir "${base_dir}/reads_qc"
+srun fastqc "${fastq_file_r2}" --outdir "${base_dir}/reads_qc"
 
 echo "=============================================================="
 echo "Aligner les reads sur le génome de référence : échantillon ${sample}"
