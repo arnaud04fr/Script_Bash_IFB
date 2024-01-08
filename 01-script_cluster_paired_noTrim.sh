@@ -33,13 +33,21 @@ genome_file="${genome_dir}/GRCh38.primary_assembly.genome.fa"
 annotation_file="${genome_dir}/gencode.v44.basic.annotation.gtf"
 # répertoire contenant les fichiers .fastq.gz
 fastq_dir="${base_dir}/Path_to_Folder"
-fastq_files=("${fastq_dir}"/*.fastq.gz)
-
-
+# liste de tous les fichiers _R1 dans un tableau
+fastq_files=(${fastq_dir}/*_1.fastq.gz) #à adpater en fonction des fichiers.
 # extraction de l'identifiant de l'échantillon
-# à partir du nom de fichier :
-sample=$(basename -s .fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
+sample=$(basename -s _1.fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
+# Nom du fichier _R2 correspondant
+fastq_file_r2="${fastq_dir}/${sample}_2.fastq.gz" #à adpater en fonction des fichiers avant filtrage.
+filtered_fastq_file_r2="${fastq_dir}/${sample}_2_filtered.fastq.gz" #à adpater en fonction des fichiers après filtrage.
 
+
+echo "=============================================================="
+echo "Contrôler la qualité : échantillon ${sample}"
+echo "=============================================================="
+mkdir -p "${base_dir}/reads_qc"
+srun fastqc "${fastq_dir}/${sample}_1.fastq.gz" --outdir "${base_dir}/reads_qc"
+srun fastqc "${fastq_file_r2}" --outdir "${base_dir}/reads_qc"
 echo "=============================================================="
 echo "Contrôler la qualité : échantillon ${sample}"
 echo "=============================================================="
