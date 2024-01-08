@@ -34,7 +34,7 @@ genome_file="${genome_dir}/GRCh38.primary_assembly.genome.fa"
 # chemin et nom du fichier contenant les annotations
 annotation_file="${genome_dir}/gencode.v44.basic.annotation.gtf"
 # répertoire contenant les fichiers .fastq.gz
-fastq_dir="${base_dir}/reads"
+fastq_dir="${base_dir}/reads" #à adapter
 fastq_files=("${fastq_dir}"/*.fastq.gz)
 # Output directory for filtered FastQ files
 filtered_fastq_dir="${base_dir}/filtered_reads"
