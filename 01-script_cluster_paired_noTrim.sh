@@ -39,15 +39,8 @@ fastq_files=(${fastq_dir}/*_1.fastq.gz) #à adpater en fonction des fichiers.
 sample=$(basename -s _1.fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
 # Nom du fichier _R2 correspondant
 fastq_file_r2="${fastq_dir}/${sample}_2.fastq.gz" #à adpater en fonction des fichiers avant filtrage.
-filtered_fastq_file_r2="${fastq_dir}/${sample}_2_filtered.fastq.gz" #à adpater en fonction des fichiers après filtrage.
 
 
-echo "=============================================================="
-echo "Contrôler la qualité : échantillon ${sample}"
-echo "=============================================================="
-mkdir -p "${base_dir}/reads_qc"
-srun fastqc "${fastq_dir}/${sample}_1.fastq.gz" --outdir "${base_dir}/reads_qc"
-srun fastqc "${fastq_file_r2}" --outdir "${base_dir}/reads_qc"
 echo "=============================================================="
 echo "Contrôler la qualité : échantillon ${sample}"
 echo "=============================================================="
