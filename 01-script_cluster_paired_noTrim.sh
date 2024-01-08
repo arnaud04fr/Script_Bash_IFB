@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
-#SBATCH --array=0-7
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=arnaud04@gmail.com
+#SBATCH --array=0-25
 
 # le script va s'arrêter
 # - à la première erreur
@@ -12,37 +14,31 @@ set -euo pipefail
 
 
 # chargement des modules nécessaires
-module load fastqc/0.11.9
-module load star/2.7.9a
-module load samtools/1.14
+module load star/2.7.10b
+module load samtools/1.15.1
 module load htseq/0.13.5
 module load cufflinks/2.2.1
 
 # répertoire de base (le répertoire depuis lequel vous lancez le script)
 base_dir="$PWD"
+# répertoire contenant les données
+data_dir="/shared/projects/wat_ipfseq/rnaseq"
 # répertoire contenant les fichiers du génome de référence
 # (séquence et annotations)
-genome_dir="${base_dir}/genome"
+genome_dir="${data_dir}/genome"
 # chemin et nom du fichier contenant le génome de référence.
 genome_file="${genome_dir}/GRCh38.primary_assembly.genome.fa"
 # chemin et nom du fichier contenant les annotations
 annotation_file="${genome_dir}/gencode.v44.basic.annotation.gtf"
 # répertoire contenant les fichiers .fastq.gz
-fastq_dir="${base_dir}/reads"
+fastq_dir="${base_dir}/reads_IPF"
+fastq_files=("${fastq_dir}"/*.fastq.gz)
+# Output directory for filtered FastQ files
+filtered_fastq_dir="${base_dir}/filtered_reads"
 
-# liste de tous les fichiers _R1_001.fastq.gz dans un tableau
-fastq_files=(${fastq_dir}/*_R1_001.fastq.gz) #à adpater en fonction de tes fichiers.
 # extraction de l'identifiant de l'échantillon
-sample=$(basename -s _R1_001.fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
-# Nom du fichier _R2 correspondant
-fastq_file_r2="${fastq_dir}/${sample}_R2_001.fastq.gz"
-
-echo "=============================================================="
-echo "Contrôler la qualité : échantillon ${sample}"
-echo "=============================================================="
-mkdir -p "${base_dir}/reads_qc"
-srun fastqc "${fastq_dir}/${sample}_R1_001.fastq.gz" --outdir "${base_dir}/reads_qc"
-srun fastqc "${fastq_file_r2}" --outdir "${base_dir}/reads_qc"
+# à partir du nom de fichier :
+sample=$(basename -s .fastq.gz "${fastq_files[$SLURM_ARRAY_TASK_ID]}")
 
 echo "=============================================================="
 echo "Aligner les reads sur le génome de référence : échantillon ${sample}"
