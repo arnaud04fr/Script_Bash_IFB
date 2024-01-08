@@ -3,7 +3,7 @@
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=8
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=arnaud04@gmail.com
+#SBATCH --mail-user=yourmail@mail.com
 #SBATCH --array=0-25
 
 # le script va s'arrêter
@@ -22,7 +22,7 @@ module load cufflinks/2.2.1
 # répertoire de base (le répertoire depuis lequel vous lancez le script)
 base_dir="$PWD"
 # répertoire contenant les données
-data_dir="/shared/projects/wat_ipfseq/rnaseq"
+data_dir="/Path_to_your_folder"
 # répertoire contenant les fichiers du génome de référence
 # (séquence et annotations)
 genome_dir="${data_dir}/genome"
