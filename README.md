@@ -13,7 +13,7 @@ adaptés de scripts initialement créés par [Pierre Poulain](https://github.com
 
 **01-script_cluster_paired_noTrim.sh** : _script pour analyse fichiers FastaQ en paired end sans filtrage_
 
-**01-script_cluster_single_noTrimming.sh** : _script pour analyse fichiers FastaQ en single end sans filtrage_
+**01-script_cluster_single_noTrim.sh** : _script pour analyse fichiers FastaQ en single end sans filtrage_
 
 **02-script_cluster_Count_aggreg.sh** : _script pour rassembler les tables de comptage_
 
