@@ -3,7 +3,7 @@
 adaptés de scripts initialement créés par [Pierre Poulain](https://github.com/pierrepo)  dans le cadre du [DU Omiques](https://odf.u-paris.fr/fr/offre-de-formation/diplome-d-universite-1/sciences-technologies-sante-STS/du-creation-analyse-et-valorisation-de-donnees-biologiques-omiques-DUSCAVD_117.html).
 
 
-**00-script_cluster_genomeIndex_0.sh** : _script pour indexation génome_
+**00-script_cluster_genome_Index.sh** : _script pour indexation génome_
 
 **00-script_concatenate-fastaq.sh** :  _script pour rassembler fichiers FastaQ_
 
