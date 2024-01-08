@@ -26,7 +26,7 @@ module load cufflinks/2.2.1
 # répertoire de base (le répertoire depuis lequel vous lancez le script)
 base_dir="$PWD"
 # répertoire contenant les données
-data_dir="/shared/projects/202304_duo/amailleux/DU_project_WATIPF"
+data_dir="/path_to_your_folder"
 # répertoire contenant les fichiers du génome de référence
 # (séquence et annotations)
 genome_dir="${data_dir}/genome"
