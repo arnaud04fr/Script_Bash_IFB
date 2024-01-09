@@ -55,7 +55,7 @@ echo "=============================================================="
 mkdir -p "${base_dir}/reads_map"
 srun STAR --runThreadN "${SLURM_CPUS_PER_TASK}" \
 --runMode alignReads \
---genomeDir "${base_dir}/genome_index" \
+--genomeDir "${data_dir}/genome_index" \
 --sjdbGTFfile "${annotation_file}" \
 --readFilesCommand zcat \
 --readFilesIn "${fastq_dir}/${sample}_R1_001.fastq.gz" "${fastq_file_r2}" \
