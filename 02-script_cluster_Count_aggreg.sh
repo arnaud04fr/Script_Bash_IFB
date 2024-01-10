@@ -1,5 +1,17 @@
 #!/bin/bash
 
+#SBATCH --mem=4G
+#SBATCH --cpus-per-task=2
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=yourmail@mail.com
+
+# le script va s'arrêter
+# - à la première erreur
+# - si une variable n'est pas définie
+# - si une erreur est recontrée dans un pipe
+set -euo pipefail
+
+
 for name in counts/*/*.txt
 do
     echo "${name}"
