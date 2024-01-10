@@ -58,7 +58,7 @@ srun STAR --runThreadN "${SLURM_CPUS_PER_TASK}" \
 --genomeDir "${data_dir}/genome_index" \
 --sjdbGTFfile "${annotation_file}" \
 --readFilesCommand zcat \
---readFilesIn "${fastq_dir}/${sample}_R1_001.fastq.gz" "${fastq_file_r2}" \ #adapter le suffixe du fichier Fastq
+--readFilesIn "${fastq_dir}/${sample}_1.fastq.gz" "${fastq_file_r2}" \ #adapter le suffixe du fichier Fastq
 --outFilterType BySJout \
 --alignIntronMin 10 \
 --alignIntronMax 3000 \
