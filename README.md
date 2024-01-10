@@ -1,5 +1,5 @@
 # Script_Bash_IFB 
-## Collection de scripts bash pour analyse RNAseq
+## Collection de scripts bash pour analyse RNAseq sur cluster
 adaptés de scripts initialement créés par [Pierre Poulain](https://github.com/pierrepo)  dans le cadre du [DU Omiques](https://odf.u-paris.fr/fr/offre-de-formation/diplome-d-universite-1/sciences-technologies-sante-STS/du-creation-analyse-et-valorisation-de-donnees-biologiques-omiques-DUSCAVD_117.html).
 
 
