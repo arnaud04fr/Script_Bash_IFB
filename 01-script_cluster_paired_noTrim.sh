@@ -23,7 +23,7 @@ module load cufflinks/2.2.1
 # répertoire de base (le répertoire depuis lequel vous lancez le script)
 base_dir="$PWD"
 # répertoire contenant les données
-data_dir="/Path_to_your_folder"
+data_dir="/Path_to_your_folder" #à adapter
 # répertoire contenant les fichiers du génome de référence
 # (séquence et annotations)
 genome_dir="${data_dir}/genome"
