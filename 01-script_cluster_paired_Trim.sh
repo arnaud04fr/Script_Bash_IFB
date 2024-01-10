@@ -51,7 +51,7 @@ echo "=============================================================="
 echo "Contrôler la qualité : échantillon ${sample}"
 echo "=============================================================="
 mkdir -p "${base_dir}/reads_qc"
-srun fastqc "${fastq_dir}/${sample}_1.fastq.gz" --outdir "${base_dir}/reads_qc"
+srun fastqc "${fastq_dir}/${sample}_1.fastq.gz" --outdir "${base_dir}/reads_qc" #à adapter en fonction du suffixe du fichier Fastq 1
 srun fastqc "${fastq_file_r2}" --outdir "${base_dir}/reads_qc"
 
 echo "=============================================================="
@@ -59,7 +59,7 @@ echo "Filtrage des séquences adaptatrices et de mauvaise qualité:  échantillo
 echo "=============================================================="
 mkdir -p "${base_dir}/filtered_reads"
 # Input and output files for R1
-input_fastq="${fastq_dir}/${sample}_1.fastq.gz"
+input_fastq="${fastq_dir}/${sample}_1.fastq.gz" #à adapter en fonction du suffixe du fichier Fastq 1
 output_fastq="${filtered_fastq_dir}/${sample}_1_filtered.fastq.gz"
 echo "vérification valeur variable -R1"
 echo $input_fastq
