@@ -2,6 +2,8 @@
 
 #SBATCH --mem=96G
 #SBATCH --cpus-per-task=8
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=youremail@mail.com
 
 # le script va s'arrêter
 # - à la première erreur
